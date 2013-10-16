@@ -4,3 +4,5 @@ setup.py
 djsmd\__init__.py
 djsmd\forms.py
 djsmd\widgets.py
+djsmd/templatetags\__init__.py
+djsmd/templatetags\markdown_input.py
