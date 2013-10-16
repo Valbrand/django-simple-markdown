@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<div class="md-editor"{% if djsmd_widget_id %} id="{{ djsmd_widget_id }}"{% endif %}{% if not djsmd_custom_style %} style="display: table; padding: 10px; background-color: #cccccc; border: 1px solid #aaaaaa; box-sizing: border-box; -moz-box-sizing: border-box;"{% endif %}>
+	<div class="md-editor-buttons">
+		<button type="button" class="md-editor-button" data-md-function="h1">h1</button>
+		<button type="button" class="md-editor-button" data-md-function="h2">h2</button>
+		<button type="button" class="md-editor-button" data-md-function="h3">h3</button>
+		<button type="button" class="md-editor-button" data-md-function="h4">h4</button>
+		<button type="button" class="md-editor-button" data-md-function="h5">h5</button>
+		<button type="button" class="md-editor-button" data-md-function="h6">h6</button>
+		<button type="button" class="md-editor-button" data-md-function="quote">quote</button>
+		<button type="button" class="md-editor-button" data-md-function="hr">hr</button>
+		<button type="button" class="md-editor-button" data-md-function="bold">bold</button>
+		<button type="button" class="md-editor-button" data-md-function="italic">italic</button>
+		<button type="button" class="md-editor-button" data-md-function="link">link</button>
+		<button type="button" class="md-editor-button" data-md-function="img">image</button>
+		<button type="button" class="md-editor-button" data-md-function="help">help</button>
+	</div>
+	<textarea name="{{ djsmd_input_name }}" class="md-editor-textarea"{{ djsmd_form_attrs }}{% if not djsmd_custom_style %} style="width: 100%; box-sizing: border-box; -moz-box-sizing: border-box;"{% endif %}{% if djsmd_placeholder %} placeholder="{{ djsmd_placeholder }}"{% endif %}>{{ djsmd_initial_value }}</textarea>
+</div>
+<script type="text/javascript" src="{% static 'djsmd/js/simple-markdown-complete.min.js' %}"></script>
+<script type="text/javascript">
+	if(window.attachEvent) {
+		window.attachEvent("onload", SMDSetupButtons);
+	} else if(window.addEventListener) {
+		window.addEventListener("load", SMDSetupButtons, false);
+	} else {
+		window.onload = (function(oldHandler, newHandler) {
+			return function() {
+				if(typeof oldHandler === 'function') {
+					oldHandler();
+				}
+				if(typeof newHandler === 'function') {
+					newHandler();
+				}
+			}
+		})(window.onload, SMDSetupButtons);
+	}
+</script>
