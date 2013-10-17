@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: django-simple-markdown
+Version: 1.0.5
+Summary: Django package for markdown editing within forms. Uses simple-markdown.js
+Home-page: https://github.com/Valbrand/django-simple-markdown
+Author: Daniel Oliveira
+Author-email: daniel@dvalbrand.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires: Markdown
